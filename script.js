@@ -1,7 +1,7 @@
 //generator button 
 var generateBtn = document.getElementById("generator-btn");
 generateBtn.addEventListener('click',function(){
-    var generateNumber=Math.floor(1000 + 9000 * Math.random());
+    var generateNumber = Math.floor(1000 + 9000 * Math.random());
     document.getElementById("pin-generate").value = generateNumber;
 })
 //number key button
@@ -37,22 +37,22 @@ document.getElementById("9").addEventListener('click',function(){
     inputValue("9");
 })
 
-//back space button
+//backspace button
 document.getElementById("backspace").addEventListener('click',function(){
     var inputValue=document.getElementById("inputArea").value;
-    var value='';
+    var value = '';
     for(var i = 0;i<inputValue.length-1;i++){
-    value=value+inputValue[i];
+    value = value+inputValue[i];
    }
-    document.getElementById("inputArea").value=value;
+    document.getElementById("inputArea").value = value;
 })
 
 //clear button
 document.getElementById("clear").addEventListener('click',function(){
-    var inputValue=document.getElementById("inputArea").value;
-    document.getElementById("inputArea").value='';
-    document.getElementById("dont-match").style.display="none";
-    document.getElementById("matched").style.display='none';
+    var inputValue = document.getElementById("inputArea").value;
+    document.getElementById("inputArea").value = '';
+    document.getElementById("dont-match").style.display = "none";
+    document.getElementById("matched").style.display = 'none';
 })
 
 //submit button 
@@ -61,21 +61,22 @@ document.getElementById("submit-btn").addEventListener('click',function(){
     var generatedKey = document.getElementById("pin-generate").value;
     var leftTry = document.getElementById("try").innerText;
     if(inputValue == generatedKey){
-        document.getElementById("matched").style.display='block';
-        document.getElementById("dont-match").style.display='none';
+        document.getElementById("matched").style.display = 'block';
+        document.getElementById("dont-match").style.display = 'none';
     }
     else{
-        document.getElementById("dont-match").style.display="block";
+        document.getElementById("dont-match").style.display = "block";
+        document.getElementById("matched").style.display = 'none';
         document.getElementById("try").innerText = leftTry-1;
         var leftTryNew = document.getElementById("try").innerText;
         if(leftTryNew == 0){
-            document.getElementById("submit-btn").style.display="none";
+            document.getElementById("submit-btn").style.display = "none";
         }
     }
 })
 
 //function
 function inputValue(id){
-    var inputValue=document.getElementById("inputArea").value;
+    var inputValue = document.getElementById("inputArea").value;
     document.getElementById("inputArea").value=inputValue+id;
 }
